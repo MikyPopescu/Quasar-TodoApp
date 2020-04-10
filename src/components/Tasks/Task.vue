@@ -1,6 +1,6 @@
 <template>
   <q-item
-    @click="task.completed = !task.completed"
+    @click="updateTask({id: id, updates:{completed:!task.completed}})"
     :class="!task.completed ? 'bg-orange-1' : 'bg-green-1'"
     clickable
     v-ripple
@@ -30,13 +30,40 @@
         </div>
       </div>
     </q-item-section>
+
+    <q-item-section side>
+      <q-btn @click.stop="promptToDelete(id)" flat round dense color="red" icon="delete" />
+    </q-item-section>
   </q-item>
 </template>
 
 
 <script>
+import { mapActions } from "vuex";
 export default {
-  props: ["task", "id"]
+  props: ["task", "id"],
+  methods: {
+    ...mapActions("tasks", ["updateTask", "deleteTask"]),
+    promptToDelete(id) {
+      this.$q
+        .dialog({
+          title: "Confirm",
+          message: "Really delete??",
+          ok: {
+            push: true
+          },
+          cancel: {
+            push: true,
+            color: "negative"
+          },
+          persistent: true
+        })
+        .onOk(() => {
+          //console.log("deleted");
+          this.deleteTask(id);
+        });
+    }
+  }
 };
 </script>
 

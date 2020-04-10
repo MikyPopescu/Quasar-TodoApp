@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const state = {
   tasks: {
     ID1: {
@@ -44,9 +46,28 @@ const state = {
   // ]
 };
 
-const mutations = {};
+const mutations = {
+  updateTask(state, payload) {
+    // console.log("payload (from mutation):", payload);
+    Object.assign(state.tasks[payload.id], payload.updates);
+  },
+  deleteTask(state, id) {
+    // console.log("id: ", id);
+    // delete state.tasks[id];
+    Vue.delete(state.tasks, id);
+  }
+};
 
-const actions = {};
+const actions = {
+  updateTask({ commit }, payload) {
+    // console.log("update task action");
+    // console.log("payload: ", payload);
+    commit("updateTask", payload);
+  },
+  deleteTask({ commit }, id) {
+    commit("deleteTask", id);
+  }
+};
 
 const getters = {
   tasks: state => {
