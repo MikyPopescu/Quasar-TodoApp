@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 // we first import the module
 
-import tasks from "./store-taks";
+import tasks from "./store-tasks";
 
 Vue.use(Vuex);
 
