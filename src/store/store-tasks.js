@@ -21,31 +21,8 @@ const state = {
       dueDate: "15/05/2020",
       dueTime: "16:30"
     }
-  }
-
-  // tasks: [
-  //   {
-  //     id: 1,
-  //     name: "Go shopping",
-  //     completed: false,
-  //     dueDate: "15/06/2020",
-  //     dueTime: "18:30"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Get the trash",
-  //     completed: false,
-  //     dueDate: "30/06/2020",
-  //     dueTime: "12:30"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Eat an apple",
-  //     completed: false,
-  //     dueDate: "15/05/2020",
-  //     dueTime: "16:30"
-  //   }
-  // ]
+  },
+  search: ""
 };
 
 const mutations = {
@@ -60,6 +37,9 @@ const mutations = {
   },
   addTask(state, payload) {
     Vue.set(state.tasks, payload.id, payload.task);
+  },
+  setSearch(state, value) {
+    state.search = value;
   }
 };
 
@@ -79,6 +59,9 @@ const actions = {
       task: task
     };
     commit("addTask", payload);
+  },
+  setSearch({ commit }, value) {
+    commit("setSearch", value);
   }
 };
 
