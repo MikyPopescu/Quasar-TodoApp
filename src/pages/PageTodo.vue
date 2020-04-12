@@ -21,8 +21,8 @@
         />
       </q-scroll-area>
 
-      <div class="absolute-bottom text-center q-mb-lg">
-        <q-btn @click="showAddTask = true" round color="primary" size="24px" icon="add" />
+      <div class="absolute-bottom text-center q-mb-lg no-pointer-events">
+        <q-btn @click="showAddTask = true" round color="primary" size="24px" icon="add" class="all-pointer-events"/>
       </div>
     </div>
     <q-dialog v-model="showAddTask">
