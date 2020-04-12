@@ -20,6 +20,78 @@ const state = {
       completed: false,
       dueDate: "2020/05/15",
       dueTime: "16:30"
+    },
+    ID4: {
+      name: "Go shopping",
+      completed: false,
+      dueDate: "2020/06/04",
+      dueTime: "18:30"
+    },
+    ID5: {
+      name: "Get the trash",
+      completed: false,
+      dueDate: "2020/12/06",
+      dueTime: "12:30"
+    },
+    ID6: {
+      name: "Eat an apple",
+      completed: false,
+      dueDate: "2020/05/15",
+      dueTime: "16:30"
+    },
+    ID7: {
+      name: "Go shopping",
+      completed: false,
+      dueDate: "2020/06/04",
+      dueTime: "18:30"
+    },
+    ID8: {
+      name: "Get the trash",
+      completed: false,
+      dueDate: "2020/12/06",
+      dueTime: "12:30"
+    },
+    ID9: {
+      name: "Eat an apple",
+      completed: false,
+      dueDate: "2020/05/15",
+      dueTime: "16:30"
+    },
+    ID10: {
+      name: "Go shopping",
+      completed: false,
+      dueDate: "2020/06/04",
+      dueTime: "18:30"
+    },
+    ID11: {
+      name: "Get the trash",
+      completed: false,
+      dueDate: "2020/12/06",
+      dueTime: "12:30"
+    },
+    ID12: {
+      name: "Eat an apple",
+      completed: false,
+      dueDate: "2020/05/15",
+      dueTime: "16:30"
+    },
+    ID13: {
+      name: "Go shopping",
+      completed: false,
+      dueDate: "2020/06/04",
+      dueTime: "18:30"
+    },
+    ID14: {
+      name: "Get the trash",
+      completed: false,
+      dueDate: "2020/12/06",
+      dueTime: "12:30"
+    },
+    ID15: {
+      name: "Eat an apple",
+      completed: false,
+      dueDate: "2020/05/15",
+      dueTime: "16:30"
     }
   },
   search: "",

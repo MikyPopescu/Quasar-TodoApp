@@ -62,7 +62,8 @@ module.exports = function(ctx) {
         "QTime",
         "QInput",
         "QBanner",
-        "QSelect"
+        "QSelect",
+        "QScrollArea"
       ],
       directives: ["ClosePopup", "TouchHold"],
 

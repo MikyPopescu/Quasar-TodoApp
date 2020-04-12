@@ -1,23 +1,29 @@
 <template>
-  <q-page class="q-pa-md">
-    <div class="row q-mb-lg">
-      <search />
-      <sort />
-    </div>
-    <p
-      v-if="search && !Object.keys(tasksTodo).length && !Object.keys(tasksCompleted).length"
-    >No search results!</p>
+  <q-page>
+    <div class="q-pa-md absolute full-width full-height column">
+      <div class="row q-mb-lg">
+        <search />
+        <sort />
+      </div>
+      <p
+        v-if="search && !Object.keys(tasksTodo).length && !Object.keys(tasksCompleted).length"
+      >No search results!</p>
 
-    <div class="relative-position">
-      <no-tasks v-if="!Object.keys(tasksTodo).length && !search"></no-tasks>
+      <q-scroll-area class="q-scroll-area-tasks">
+        <no-tasks v-if="!Object.keys(tasksTodo).length && !search"></no-tasks>
 
-      <tasks-todo v-if="Object.keys(tasksTodo).length" :tasksTodo="tasksTodo" />
+        <tasks-todo v-if="Object.keys(tasksTodo).length" :tasksTodo="tasksTodo" />
 
-      <tasks-completed v-if="Object.keys(tasksCompleted).length" :tasksCompleted="tasksCompleted" />
-    </div>
+        <tasks-completed
+          class="q-mb-xl"
+          v-if="Object.keys(tasksCompleted).length"
+          :tasksCompleted="tasksCompleted"
+        />
+      </q-scroll-area>
 
-    <div class="absolute-bottom text-center q-mb-lg">
-      <q-btn @click="showAddTask = true" round color="primary" size="24px" icon="add" />
+      <div class="absolute-bottom text-center q-mb-lg">
+        <q-btn @click="showAddTask = true" round color="primary" size="24px" icon="add" />
+      </div>
     </div>
     <q-dialog v-model="showAddTask">
       <add-task @close="showAddTask = false" />
@@ -57,4 +63,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.q-scroll-area-tasks {
+  display: flex;
+  flex-grow: 1;
+}
+</style>
