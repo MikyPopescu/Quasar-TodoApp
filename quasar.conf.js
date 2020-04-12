@@ -64,7 +64,7 @@ module.exports = function(ctx) {
         "QBanner",
         "QSelect"
       ],
-      directives: ["ClosePopup"],
+      directives: ["ClosePopup", "TouchHold"],
 
       // Quasar plugins
       plugins: ["Dialog"]
