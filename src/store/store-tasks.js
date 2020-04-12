@@ -6,19 +6,19 @@ const state = {
     ID1: {
       name: "Go shopping",
       completed: false,
-      dueDate: "15/06/2020",
+      dueDate: "2020/06/04",
       dueTime: "18:30"
     },
     ID2: {
       name: "Get the trash",
       completed: false,
-      dueDate: "30/06/2020",
+      dueDate: "2020/12/06",
       dueTime: "12:30"
     },
     ID3: {
       name: "Eat an apple",
       completed: false,
-      dueDate: "15/05/2020",
+      dueDate: "2020/05/15",
       dueTime: "16:30"
     }
   },
