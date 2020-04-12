@@ -61,7 +61,8 @@ module.exports = function(ctx) {
         "QPopupProxy",
         "QTime",
         "QInput",
-        "QBanner"
+        "QBanner",
+        "QSelect"
       ],
       directives: ["ClosePopup"],
 
