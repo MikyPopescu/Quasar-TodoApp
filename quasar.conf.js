@@ -69,7 +69,7 @@ module.exports = function(ctx) {
       directives: ["ClosePopup", "TouchHold"],
 
       // Quasar plugins
-      plugins: ["Dialog"]
+      plugins: ["Dialog", "LocalStorage", "SessionStorage"]
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
