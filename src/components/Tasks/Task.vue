@@ -25,7 +25,7 @@
         <div class="column">
           <q-item-label class="row justify-end" caption>{{ task.dueDate | niceDate}}</q-item-label>
           <q-item-label class="row justify-end" caption>
-            <small>{{ task.dueTime }}</small>
+            <small>{{ taskDueTime }}</small>
           </q-item-label>
         </div>
       </div>
@@ -46,64 +46,74 @@
 
 
 <script>
-import { mapActions, mapState } from "vuex";
-import { date } from "quasar";
+import { mapActions, mapState, mapGetters } from 'vuex'
+import { date } from 'quasar'
 
 export default {
-  props: ["task", "id"],
+  props: ['task', 'id'],
   data() {
     return {
       showEditTask: false
-    };
+    }
   },
   computed: {
-    ...mapState("tasks", ["search"])
+    ...mapState('tasks', ['search']),
+    ...mapGetters('settings', ['settings']),
+    taskDueTime() {
+      if (this.settings.show12HourTimeFormat) {
+        return date.formatDate(
+          this.task.dueDate + ' ' + this.task.dueTime,
+          'h:mmA'
+        )
+      }
+      return this.task.dueTime
+    }
   },
   methods: {
-    ...mapActions("tasks", ["updateTask", "deleteTask"]),
+    ...mapActions('tasks', ['updateTask', 'deleteTask']),
     showEditTaskModal() {
-      this.showEditTask = true;
+      this.showEditTask = true
     },
     promptToDelete(id) {
       this.$q
         .dialog({
-          title: "Confirm",
-          message: "Really delete??",
+          title: 'Confirm',
+          message: 'Really delete??',
           ok: {
             push: true
           },
           cancel: {
             push: true,
-            color: "negative"
+            color: 'negative'
           },
           persistent: true
         })
         .onOk(() => {
           //console.log("deleted");
-          this.deleteTask(id);
-        });
+          this.deleteTask(id)
+        })
     }
   },
   filters: {
     niceDate(value) {
-      return date.formatDate(value, "D-MMM-YYYY");
+      return date.formatDate(value, 'D-MMM-YYYY')
     },
     searchHighlight(value, search) {
       // console.log("value", value);
       //console.log("search", search);
       if (search) {
-        let searchRegExp = new RegExp(search, "i");
+        let searchRegExp = new RegExp(search, 'i')
         return value.replace(searchRegExp, match => {
-          return '<span class="bg-yellow-6">' + match + "</span>";
-        });
+          return '<span class="bg-yellow-6">' + match + '</span>'
+        })
       }
-      return value;
+      return value
     }
   },
   components: {
-    "edit-task": require("components/Tasks/Modals/EditTask.vue").default
+    'edit-task': require('components/Tasks/Modals/EditTask.vue').default
   }
-};
+}
 </script>
 
 <style >

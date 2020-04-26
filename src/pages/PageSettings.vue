@@ -11,29 +11,50 @@
           <q-toggle v-model="show12HourTimeFormat" color="blue" />
         </q-item-section>
       </q-item>
+
+      <q-item tag="label" v-ripple>
+        <q-item-section>
+          <q-item-label>Show taks in one list</q-item-label>
+        </q-item-section>
+        <q-item-section side>
+          <q-toggle v-model="showTasksInOneList" color="blue" />
+        </q-item-section>
+      </q-item>
     </q-list>
   </q-page>
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 export default {
   computed: {
-    ...mapGetters("settings", ["settings"]),
+    ...mapGetters('settings', ['settings']),
     show12HourTimeFormat: {
       get() {
-        return this.settings.show12HourTimeFormat;
+        return this.settings.show12HourTimeFormat
       },
       set(value) {
         //trigger an action
-        this.setShow12HourTimeFormat(value);
+        this.setShow12HourTimeFormat(value)
+      }
+    },
+    showTasksInOneList: {
+      get() {
+        return this.settings.showTasksInOneList
+      },
+      set(value) {
+        //trigger an action
+        this.setShowTasksInOneList(value)
       }
     }
   },
   methods: {
-    ...mapActions("settings", ["setShow12HourTimeFormat"])
+    ...mapActions('settings', [
+      'setShow12HourTimeFormat',
+      'setShowTasksInOneList'
+    ])
   }
-};
+}
 </script>
 
 

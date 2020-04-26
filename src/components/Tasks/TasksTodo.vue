@@ -5,7 +5,7 @@
     leave-active-class="animated zoomOut absolute-top"
   >
     <div>
-      <list-header v-if="Object.keys(tasksTodo).length" bgcolor="bg-orange-4">ToDo</list-header>
+      <list-header v-if="!settings.showTasksInOneList" bgcolor="bg-orange-4">ToDo</list-header>
       <q-list separator bordered>
         <task v-for="(task,key) in tasksTodo" :key="key" :task="task" :id="key"></task>
       </q-list>
@@ -14,11 +14,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: ["tasksTodo"],
+  props: ['tasksTodo'],
+  computed: {
+    ...mapGetters('settings', ['settings'])
+  },
   components: {
-    task: require("components/Tasks/Task.vue").default,
-    "list-header": require("components/Shared/ListHeader.vue").default
+    task: require('components/Tasks/Task.vue').default,
+    'list-header': require('components/Shared/ListHeader.vue').default
   }
-};
+}
 </script>
