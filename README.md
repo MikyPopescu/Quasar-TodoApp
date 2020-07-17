@@ -1,4 +1,4 @@
-# Todo Quasar  (todo-quasar-firebase)
+# Todo Quasar  (todo-quasar)
 
 A Quasar Framework Todo app using Firebase database
 
